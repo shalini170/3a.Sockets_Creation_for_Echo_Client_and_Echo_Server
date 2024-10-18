@@ -12,28 +12,32 @@ Sockets Links.
 4. Send and receive the message using the send function in socket.
 ## PROGRAM
 ```
-Client
-import socket
-s=socket.socket()
-s.connect(('localhost',8000))
-while True:
- msg=input("Client > ")
- s.send(msg.encode())
- print("Server > ",s.recv(1024).decode())
-Server
-import socket
-s=socket.socket()
-s.bind(('localhost',8000))
-s.listen(5)
-c,addr=s.accept()
-while True:
- ClientMessage=c.recv(1024).decode()
- c.send(ClientMessage.encode())
+
+Client.py
+import socket 
+s=socket.socket() 
+s.connect(('localhost',8000)) 
+while True: 
+    msg=input("Client > ") 
+    s.send(msg.encode()) 
+    print("Server > ",s.recv(1024).decode())
+```
+```
+Server.py
+import socket 
+s=socket.socket() 
+s.bind(('localhost',8000)) 
+s.listen(5) 
+c,addr=s.accept() 
+while True: 
+    ClientMessage=c.recv(1024).decode() 
+    c.send(ClientMessage.encode())
 ```
 ## OUPUT
 client:
 
-![image](https://github.com/shalini170/3a.Sockets_Creation_for_Echo_Client_and_Echo_Server/assets/151901983/b5a7e2f9-4393-4a36-afce-bc1bc8de9012)
+![Screenshot 2024-10-18 074330](https://github.com/user-attachments/assets/eb2306e7-8119-4b8c-8251-28c0d2181552)
+
 
 
 ## RESULT
